@@ -1,9 +1,0 @@
-import sys
-import math as m 
-n = int(sys.stdin.readline())
-nums = []
-for i in range(n):
-    nums.append(int(sys.stdin.readline()))
-nums.sort()
-print(m.ceil(sum(nums)/n))
-print(nums[m.ceil(n/2)])
