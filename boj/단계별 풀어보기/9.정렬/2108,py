@@ -1,9 +1,19 @@
 import sys
-import math as m 
+from typing import Counter
 n = int(sys.stdin.readline())
 nums = []
 for i in range(n):
     nums.append(int(sys.stdin.readline()))
 nums.sort()
-print(m.ceil(sum(nums)/n))
-print(nums[m.ceil(n/2)])
+cnt = Counter(nums).most_common(2)
+
+print(round(sum(nums)/n))    
+print(nums[n//2])
+if len(nums) > 1:
+    if cnt[0][1] == cnt[1][1]:
+        print(cnt[1][0])
+    else:
+        print(cnt[0][0])
+else:
+    print(cnt[0][0])
+print(nums[-1]-nums[0])
