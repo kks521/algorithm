@@ -1,21 +1,18 @@
 import sys 
 n = int(sys.stdin.readline())
 
-print(stars*3)
-
-def star(k):
-    cnt = 1
-    for i in range(k): 
-        if cnt == 2:
-            print('***\n* *\n***'*(k-1))
-        else:
-            print('stars'*k,end='')
-        cnt += 1
-def solve(n):
-    star(n//3) 
 def make(l):
-    print('***'*l)
-    print('* *'*l)
-    print('***'*l)
-
-solve(n)
+    if l == 3:
+        return['***','* *','***']
+    
+    star = make(l//3)
+    stars = []
+    for i in star:
+        stars.append(i * 3)
+    for i in star:
+        stars.append(i + ' '*(l//3)+i)
+    for i in star:
+        stars.append(i*3)     
+    return stars
+t = make(n)
+print('\n'.join(make(n)))
