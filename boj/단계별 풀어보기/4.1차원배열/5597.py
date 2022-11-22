@@ -1,6 +1,10 @@
 import sys
-checked = [False * 30] 
-print(checked) 
+checked = [False] * 30 
 for i in range(28):
-    checked.append(int(sys.stdin.readline()))
+    checked[(int(sys.stdin.readline()))-1] = True
+print(checked.index(False)+1)
+checked[checked.index(False)] = True
+print(checked.index(False)+1)
+
+
 
