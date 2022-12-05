@@ -6,18 +6,16 @@ def getScore(n):
         ranks.append(list(map(int,sys.stdin.readline().split())))
     return ranks
 def checkScore(n):
-    cnt=0
+    cnt = 1
     ranks = getScore(n)
-    ranks.sort(key=lambda x: (-x[0],-x[1]))
-    for i in range(n):
-        check = ranks[i]
-        checkIndex = ranks.index(check)
-        for s1,s2 in reversed(ranks[checkIndex:]):
-            if s1 < check[0] and s2 < check[1]:
-                cnt += 1
-                break
-
-    return n - cnt 
+    ranks.sort(key=lambda x: x[0])
+    standard = ranks[0][1]
+    for i in range(1,n):
+        check = ranks[i][1]
+        if check < standard:
+            standard = check
+            cnt += 1
+    return cnt 
 case = int(sys.stdin.readline())
 
 for i in range(case):
