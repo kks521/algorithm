@@ -13,4 +13,4 @@ else:
         print(-1)
     else: 
         n = sorted(n,reverse=True)
-        print(''.join(n))
+        print(''.join(n))  
