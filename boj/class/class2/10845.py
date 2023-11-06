@@ -6,11 +6,9 @@ temp = deque()
 
 for _ in range(cnt):
     order = sys.stdin.readline().rstrip().split()
-    if len(order) > 1:
-        order[1] == int(order[1])
     
     if order[0] == 'push':
-        temp.append(order[1])
+        temp.append(int(order[1]))
     
     if order[0] == 'pop':
         if temp:
@@ -35,7 +33,7 @@ for _ in range(cnt):
 
     if order[0] == 'back':
         if temp:
-            print(temp[1])
+            print(temp[-1])
         else:
             print(-1)
     
